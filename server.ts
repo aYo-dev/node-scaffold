@@ -11,6 +11,6 @@ expressConfig.init(app);
 routesConfig.getRoutes(app);
 
 app.listen(port, host, null, () => {
-  // eslint-disable-next-line no-console
-  console.log('Server is running on port ' + port);
+  // tslint:disable-next-line: no-console
+  console.log(`Listening on http://${host}:${port}`);
 });

@@ -4,23 +4,51 @@ export const getRootPath = (rootPath) => {
   return path.normalize(__dirname + rootPath);
 };
 
-export default {
-  production: {
-    rootPath: getRootPath('/../'),
-    db: '',
-    host:'',
-    port: process.env.PORT || 3030
-  },
-  staging: {
-    rootPath: getRootPath('/../'),
-    db: 'mongodb://localhost/applications_manager',
-    host: '',
-    port: process.env.PORT || 3030
-  },
-  development: {
-    rootPath: getRootPath('/../'),
-    db: 'mongodb://localhost/applications_manager',
-    host: '127.0.0.1',
-    port: process.env.PORT || 3030
-  }
+interface IEnvironmentConfig {
+  rootPath: string;
+  PG_URI: string;
+  PG_POOL_MIN: number;
+  PG_POOL_MAX: number;
+  host: string;
+  port: string | number;
+}
+
+interface IConfig {
+  production: IEnvironmentConfig;
+  staging: IEnvironmentConfig;
+  development: IEnvironmentConfig;
+  test: IEnvironmentConfig;
+}
+
+const production: IEnvironmentConfig = {
+  rootPath: getRootPath('/../'),
+  PG_URI: '',
+  PG_POOL_MIN: 0,
+  PG_POOL_MAX: 2,
+  host: '',
+  port: process.env['PORT'] || 3030,
 };
+
+const staging: IEnvironmentConfig = {
+  rootPath: getRootPath('/../'),
+  PG_URI: '',
+  PG_POOL_MIN: 0,
+  PG_POOL_MAX: 2,
+  host: '',
+  port: process.env['PORT'] || 3030
+};
+
+const development: IEnvironmentConfig = {
+  rootPath: getRootPath('/../'),
+  PG_URI: '',
+  PG_POOL_MIN: 0,
+  PG_POOL_MAX: 10,
+  host: '127.0.0.1',
+  port: process.env['PORT'] || 3030
+};
+
+export default {
+  production,
+  staging,
+  development
+} as IConfig;
