@@ -1,1 +1,1 @@
-export const TODO_TABLE = 'TODO';
+export const TODO_TABLE = 'todo';

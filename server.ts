@@ -7,8 +7,7 @@ const env = process.env['NODE_ENV'] || 'development',
   { port, host } = config[env],
   app = express();
 
-expressConfig.init(app);
-routesConfig.getRoutes(app);
+routesConfig.getRoutes(expressConfig.init(app));
 
 app.listen(port, host, null, () => {
   // tslint:disable-next-line: no-console
