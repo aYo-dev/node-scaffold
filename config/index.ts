@@ -49,7 +49,7 @@ const development: IEnvironmentConfig = {
   PG_URI: `postgres://postgres:@127.0.0.1:5432/${DB_NAME}`,
   PG_POOL_MIN: 0,
   PG_POOL_MAX: 2,
-  host: '127.0.0.1',
+  host: '0.0.0.0',
   port: process.env['PORT'] || 3030
 };
 
