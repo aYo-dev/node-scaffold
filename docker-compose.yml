@@ -2,11 +2,17 @@ version: '3'
 services:
   db:
     image: postgres
+    restart: always
+    volumes:
+      - "/var/lib/postgresql/data:/var/lib/postgresql/data" 
+    ports:
+      - "5432:5432"
   server:
     build: .
     ports:
      - "3030:3030"
     volumes:
      - .:/usr/src/app
+    command: npm run init
     depends_on:
       - db

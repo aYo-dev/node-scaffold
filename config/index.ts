@@ -9,7 +9,7 @@ export const getRootPath = (rootPath) => {
 interface IEnvironmentConfig {
   rootPath: string;
   PG_SEARCH_PATH: string;
-  PG_URI: string;
+  DB_CONNECTION: any;
   PG_POOL_MIN: number;
   PG_POOL_MAX: number;
   host: string;
@@ -26,7 +26,7 @@ interface IConfig {
 const production: IEnvironmentConfig = {
   rootPath: getRootPath('/../'),
   PG_SEARCH_PATH: 'knex,public',
-  PG_URI: '',
+  DB_CONNECTION: '',
   PG_POOL_MIN: 0,
   PG_POOL_MAX: 10,
   host: '',
@@ -36,7 +36,7 @@ const production: IEnvironmentConfig = {
 const staging: IEnvironmentConfig = {
   rootPath: getRootPath('/../'),
   PG_SEARCH_PATH: 'knex,public',
-  PG_URI: '',
+  DB_CONNECTION: '',
   PG_POOL_MIN: 0,
   PG_POOL_MAX: 2,
   host: '',
@@ -46,7 +46,13 @@ const staging: IEnvironmentConfig = {
 const development: IEnvironmentConfig = {
   rootPath: getRootPath('/../'),
   PG_SEARCH_PATH: 'knex,public',
-  PG_URI: `postgres://postgres:@127.0.0.1:5432/${DB_NAME}`,
+  DB_CONNECTION: {
+    host : 'db',
+    user : 'postgres',
+    name: 'postgres',
+    database : 'postgres',
+    post: 5432
+  },
   PG_POOL_MIN: 0,
   PG_POOL_MAX: 2,
   host: '0.0.0.0',

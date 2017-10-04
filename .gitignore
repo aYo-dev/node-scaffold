@@ -3,6 +3,7 @@ config/development.ts
 node_modules/
 dist/*
 !dist/.gitkeep
+ts-node*/
 
 # Dev
 .gitconfig
@@ -27,6 +28,7 @@ log/
 *.log
 .vagrant/
 .nyc_output/
+.v8flags.*
 
 # IDE files
 .idea/
