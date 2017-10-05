@@ -16,3 +16,9 @@ services:
     command: npm run init
     depends_on:
       - db
+  dbClient:
+    image: thajeztah/pgadmin4
+    ports: 
+    - "5050:5050"
+    depends_on:
+      - db
