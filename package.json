@@ -7,7 +7,7 @@
     "_knex": "node_modules/.bin/knex",
     "start": "npm run dev",
     "dev": "./node_modules/.bin/nodemon --exec ./node_modules/.bin/ts-node -- ./server.ts",
-    "init": "npm run migrate && npm run seed && npm run start",
+    "init": "npm run migrate && npm run seed",
     "lint": "tslint --project ./tsconfig.json",
     "migrate": "npm run _knex -- migrate:latest",
     "rollback": "npm run _knex -- migrate:rollback",
