@@ -1,6 +1,6 @@
 # NTP Scaffold
 
-NTP Scaffold is Node.js, Typescript, Postgres istarted integrated with PgAdmin4.
+NTP Scaffold is Node.js, Typescript, PostgreSQL starter kit integrated with PgAdmin4.
 
 ## Tech Stack 
 
